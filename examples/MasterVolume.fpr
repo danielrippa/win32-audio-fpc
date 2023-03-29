@@ -1,0 +1,16 @@
+program MasterVolume;
+
+uses
+  Win32AudioVolume, SysUtils;
+
+var
+  Volume: Integer;
+begin
+  if ParamCount > 0 then begin
+    Volume := StrToInt(ParamStr(1));
+    SetMasterVolume(Volume / 100);
+  end else begin
+    Volume := Round(GetMasterVolume * 100);
+    Writeln(Volume);
+  end;
+end.
