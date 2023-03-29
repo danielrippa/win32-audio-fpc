@@ -1,0 +1,14 @@
+program AudioDevices;
+
+uses
+  Win32AudioDevices, SysUtils;
+
+var
+  Device: TAudioDevice;
+begin
+  for Device In GetAudioDevices(fdBoth) do begin
+    with Device do begin
+      Writeln(Format('%s | %s | %s | %s', [Flow, DeviceDescription, FriendlyName, ID]));
+    end;
+  end;
+end.
